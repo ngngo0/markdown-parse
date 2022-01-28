@@ -25,7 +25,13 @@ public class MarkdownParse {
                 return toReturn;
             }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
-            //System.out.println(markdown.charAt(currentIndex));
+            
+            //fix infinite loop from /n at the end
+            String left=markdown.substring(currentIndex, markdown.length() - 1);
+            if(left.indexOf("[",currentIndex) ==-1){
+                return toReturn;
+            }
+            
             currentIndex = closeParen + 1;
         }
         return toReturn;
