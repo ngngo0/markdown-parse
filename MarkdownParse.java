@@ -16,7 +16,7 @@ public class MarkdownParse {
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            
+
             //difference between Image vs Link & first line fix
             if((nextOpenBracket>0) && markdown.charAt(nextOpenBracket-1)=='!'){
                 currentIndex= closeParen+1;
@@ -56,6 +56,11 @@ public class MarkdownParse {
             return toReturn;
         }
 
+        System.out.println(nextCloseBracket + " " + openParen);
+        if(openParen-nextCloseBracket!=1){
+            currentIndex=closeParen+1;
+            continue;
+        }
         toReturn.add(markdown.substring(openParen + 1, closeParen));
         currentIndex = closeParen + 1;
         
