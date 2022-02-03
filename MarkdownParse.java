@@ -56,7 +56,8 @@ public class MarkdownParse {
             return toReturn;
         }
 
-        System.out.println(nextCloseBracket + " " + openParen);
+        //fix for format.md
+        //System.out.println(nextCloseBracket + " " + openParen);
         if(openParen-nextCloseBracket!=1){
             currentIndex=closeParen+1;
             continue;
