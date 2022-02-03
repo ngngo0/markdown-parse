@@ -9,6 +9,7 @@ import java.util.*;
 
 //javac -cp ".;lib\junit-4.13.2.jar;lib\hamcrest-core-1.3.jar" MarkdownParseTest.java
 //java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore MarkdownParseTest
+
 public class MarkdownParseTest {
     @Test
     public void addition() {
@@ -21,9 +22,7 @@ public class MarkdownParseTest {
         Path fileName = Path.of("test-file.md");
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
-        System.out.println(links);
-        assertEquals(List.of("https://something.com", "some-page.html"),
-        links);
+        assertEquals(List.of("https://something.com", "some-page.html"),links);
     }
 
     @Test
